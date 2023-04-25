@@ -7,7 +7,7 @@ const Repos = () => {
 const [repos, setRepos] = useState([])
 
 useEffect(() =>{
-    axios.get('http://localhost:3000/existenRepos')
+    axios.get('https://check-intro-back-production.up.railway.app/existenRepos')
     .then(res => {
         console.log(res.data)
         setRepos(res.data)

@@ -6,7 +6,7 @@ const ImportCSV = ()  =>{
     const [datos, setDatos] = useState([])
 
     const envioDatos = async datos => {
-        await Axios.post("http://localhost:3000/envioDatos", {
+        await Axios.post("https://check-intro-back-production.up.railway.app/envioDatos", {
         datos
        },{
         headers: {
