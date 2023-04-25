@@ -17,26 +17,32 @@ useEffect(() =>{
   return (
 
     <div className="container">
-        <table className="table table-striped table-sm tabla">
-      <thead>
+    <table className="table table-striped table-sm vertical-align: middle tabla">
+      <thead className="tabla-encabezado">
         <tr>
+          <th>#</th>
           <th>Usuario</th>
           <th>Repositorio</th>
           <th>Existe?</th>
+          <th>Commits</th>
+          <th>Branches</th>
         </tr>
       </thead>
       <tbody>
-      {repos && repos.map(item =>
-      <tr key={item.usuario}>
+      {repos && repos.map((item,i) =>
+      <tr key={i}>
+        <td >{i+1}</td>
         <td >{item.usuario}</td>
         <td>{item.repo}</td>
-        <td className={item.existe? "badge text-bg-success badge-pers": "badge text-bg-danger badge-pers"}>{item.existe? "si":"no"}</td>
+        <td ><span className={item.existe? "badge text-bg-success badge-pers": "badge text-bg-danger badge-pers"}>{item.existe? "si":"no"}</span></td>
+        <td>{item.commits}</td>
+        <td>{item.branches && item.branches.map(item => <span className="branches" key={item}>{item}</span>)}</td>
         </tr>
         )}
       </tbody>
     </table>
       
-        <CSVLink data={repos}>Download me</CSVLink>
+        <CSVLink className="button descarga" data={repos}>Descarga</CSVLink>
     </div>
   )
 }

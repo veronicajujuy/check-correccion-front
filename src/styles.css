@@ -57,11 +57,11 @@
     font-weight: 700;
     margin: 50px
 }
-.tabla {
+/* .tabla {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+} */
 .container {
     display: flex;
     flex-direction: column;
@@ -93,7 +93,26 @@
     font-family: 'Roboto', sans-serif;
     font-size: 10px;
     font-weight: 400;
-    display: flex;
+    display: flex!important;
+    align-items: center;
     justify-content: center;
-    align-content: center;
+}
+
+.badge-existe{
+    background-color: #0c8b25;
+}
+.badge-noexiste{
+    background-color: #8b0c1f;
+}
+
+.branches {
+    display: flex;
+    flex-direction: column;
+}
+
+.descarga {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
