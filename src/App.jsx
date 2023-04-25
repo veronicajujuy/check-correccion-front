@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom"
 import ImportCSV from "./components/ImportCSV"
-import Repos from "./components/repos"
+import Repos from "./components/Repos"
 import logo from "./assets/logo.png"
 import "./styles.css"
 
