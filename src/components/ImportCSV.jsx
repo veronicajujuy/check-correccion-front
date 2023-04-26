@@ -4,14 +4,16 @@ import Axios from "axios";
 
 const ImportCSV = ()  =>{
     const [datos, setDatos] = useState([])
+    const [success, setSuccess] = useState(false)
 
     const envioDatos = async datos => {
-        await Axios.post("https://check-intro-back-production.up.railway.app/envioDatos", {
+        await Axios.post("http://localhost:3000/envioDatos", {
         datos
        },{
         headers: {
           "Content-type": "Application/json",
-        }}).then(res => console.log(res))
+        }}).then(res => {console.log(res)
+            setSuccess(true)})
        .catch(error => console.log(error)) 
     }
 
@@ -61,10 +63,15 @@ const ImportCSV = ()  =>{
         )})}
       </tbody>
     </table>
-      
+      <div className="button-check">
         <button onClick={handleClick} className="button">
             Enviar
         </button>
+        {success?<div className="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Datos Cargados!</strong>
+            <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={() =>setSuccess(false)}></button>
+            </div>:null}
+        </div>
     </div>
   );
 }

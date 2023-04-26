@@ -5,14 +5,28 @@ import { CSVLink} from "react-csv";
 
 const Repos = () => {
 const [repos, setRepos] = useState([])
+const [mostrar, setMostrar] = useState(false)
+let datos = "datos"
 
 useEffect(() =>{
-    axios.get('https://check-intro-back-production.up.railway.app/existenRepos')
+    axios.get('http://localhost:3000/existenRepos')
     .then(res => {
         console.log(res.data)
         setRepos(res.data)
     })
-},[])
+},[mostrar])
+const handleClick = () => {
+      axios.post("http://localhost:3000/limpiarDatos", {  
+            datos
+          },{
+            headers: {
+              "Content-type": "Application/json",
+            }})
+      .then(res => {
+          console.log(res.data)
+          setMostrar(!mostrar)
+      })
+}
 
   return (
 
@@ -43,7 +57,11 @@ useEffect(() =>{
     </table>
       
         <CSVLink className="button descarga" data={repos}>Descarga</CSVLink>
+        <button onClick={handleClick} className="button">
+            Limpiar
+        </button>
     </div>
+    
   )
 }
 
