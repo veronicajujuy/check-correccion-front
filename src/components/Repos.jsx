@@ -9,14 +9,14 @@ const [mostrar, setMostrar] = useState(false)
 let datos = "datos"
 
 useEffect(() =>{
-    axios.get('http://localhost:3000/existenRepos')
+    axios.get('http://01.quo.infra.quo.ar:3001/existenRepos')
     .then(res => {
         console.log(res.data)
         setRepos(res.data)
     })
 },[mostrar])
 const handleClick = () => {
-      axios.post("http://localhost:3000/limpiarDatos", {  
+      axios.post("http://01.quo.infra.quo.ar:3001/limpiarDatos", {  
             datos
           },{
             headers: {
