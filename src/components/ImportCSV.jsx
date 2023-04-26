@@ -7,7 +7,7 @@ const ImportCSV = ()  =>{
     const [success, setSuccess] = useState(false)
 
     const envioDatos = async datos => {
-        await Axios.post("http://01.quo.infra.quo.ar:3001/envioDatos", {
+        await Axios.post("http://localhost:3001/envioDatos", {
         datos
        },{
         headers: {
