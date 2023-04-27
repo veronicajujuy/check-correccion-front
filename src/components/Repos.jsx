@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { CSVLink} from "react-csv";
-
+import {PORT, HTTP} from "./../assets/config.js"
 
 const Repos = () => {
 const [repos, setRepos] = useState([])
@@ -9,14 +9,14 @@ const [mostrar, setMostrar] = useState(false)
 let datos = "datos"
 
 useEffect(() =>{
-    axios.get('http://localhost:3001/existenRepos')
+    axios.get(`http://${HTTP}:${PORT}/existenRepos`)
     .then(res => {
         console.log(res.data)
         setRepos(res.data)
     })
 },[mostrar])
 const handleClick = () => {
-      axios.post("http://localhost:3001/limpiarDatos", {  
+      axios.post(`http://${HTTP}:${PORT}/limpiarDatos`, {  
             datos
           },{
             headers: {

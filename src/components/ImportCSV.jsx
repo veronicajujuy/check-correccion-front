@@ -1,13 +1,15 @@
 import Papa from "papaparse";
 import {  useState } from "react";
 import Axios from "axios";
+import {PORT, HTTP} from "./../assets/config.js"
+
 
 const ImportCSV = ()  =>{
     const [datos, setDatos] = useState([])
     const [success, setSuccess] = useState(false)
 
     const envioDatos = async datos => {
-        await Axios.post("http://localhost:3001/envioDatos", {
+        await Axios.post(`http://${HTTP}:${PORT}/envioDatos`, {
         datos
        },{
         headers: {
