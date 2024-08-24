@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
-import { PORT, HTTP } from "./../assets/config.js";
+import { API_URL } from "./../assets/config.js";
 
 const Repos = () => {
   const [repos, setRepos] = useState([]);
@@ -9,14 +9,14 @@ const Repos = () => {
   let datos = "datos";
 
   useEffect(() => {
-    axios.get(`http://${HTTP}:${PORT}/existenRepos`).then((res) => {
+    axios.get(`${API_URL}/existenRepos`).then((res) => {
       setRepos(res.data);
     });
   }, [mostrar]);
   const handleClick = () => {
     axios
       .post(
-        `http://${HTTP}:${PORT}/limpiarDatos`,
+        `${API_URL}/limpiarDatos`,
         {
           datos,
         },
