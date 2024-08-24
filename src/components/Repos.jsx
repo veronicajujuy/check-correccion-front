@@ -10,7 +10,6 @@ const Repos = () => {
 
   useEffect(() => {
     axios.get(`http://${HTTP}:${PORT}/existenRepos`).then((res) => {
-      console.log(res.data);
       setRepos(res.data);
     });
   }, [mostrar]);
@@ -28,13 +27,24 @@ const Repos = () => {
         }
       )
       .then((res) => {
-        console.log(res.data);
         setMostrar(!mostrar);
       });
   };
 
   return (
     <div className="container">
+      <div className="descripcion">
+        <p>
+          En esta pestaña verá los usuarios de los repositorios, los
+          repositorios, si existen o no, la cantidad de commits y las branches
+          que existen en el mismo{" "}
+        </p>
+        <p>
+          En el botón descarga puede descargar el archivo .csv para utilizarlo
+          como desee
+        </p>
+        <p>Limpiar es para cargar otra tanda de repositorios</p>
+      </div>
       <table className="table table-striped table-sm vertical-align: middle tabla">
         <thead className="tabla-encabezado">
           <tr>
@@ -44,7 +54,6 @@ const Repos = () => {
             <th>Existe?</th>
             <th>Commits</th>
             <th>Branches</th>
-            <th>Archivos</th>
           </tr>
         </thead>
         <tbody>
@@ -79,11 +88,6 @@ const Repos = () => {
                     item.archivos.map((archivo, index) => (
                       <div key={index}>
                         <strong>Rama:</strong> {archivo.rama}
-                        <br />
-                        <strong>Archivos:</strong>{" "}
-                        {archivo.archivos.map((file, idx) => (
-                          <span key={idx}>{file + " - "}</span>
-                        ))}
                       </div>
                     ))}
                 </td>
