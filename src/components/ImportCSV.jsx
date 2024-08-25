@@ -1,7 +1,7 @@
 import Papa from "papaparse";
 import { useState } from "react";
 import Axios from "axios";
-import { PORT, HTTP } from "./../assets/config.js";
+import { API_URL } from "./../assets/config.js";
 
 const ImportCSV = () => {
   const [datos, setDatos] = useState([]);
@@ -9,7 +9,7 @@ const ImportCSV = () => {
 
   const envioDatos = async (datos) => {
     await Axios.post(
-      `http://${HTTP}:${PORT}/envioDatos`,
+      `${API_URL}/envioDatos`,
       {
         datos,
       },

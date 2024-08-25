@@ -13,14 +13,14 @@ RUN npm install
 # Copia el resto de los archivos de la aplicación
 COPY . .
 
-# Compila la aplicación para producción
+# Compila la aplicación para producción utilizando Vite
 RUN npm run build
 
 # Etapa 2: Servir los archivos estáticos con Nginx
 FROM nginx:alpine
 
-# Copia los archivos compilados al directorio de Nginx
-COPY --from=build /app/build /usr/share/nginx/html
+# Copia los archivos compilados por Vite al directorio de Nginx
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expone el puerto 80
 EXPOSE 80
