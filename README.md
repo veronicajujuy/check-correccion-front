@@ -2,6 +2,8 @@
 
 **Comprobando Repositorios de Alumnos** es una herramienta diseñada para verificar automáticamente el estado de los repositorios de GitHub de los estudiantes en un curso. La aplicación permite cargar un archivo CSV con las URLs de los repositorios de los alumnos y realiza varias comprobaciones sobre cada repositorio.
 
+![](./repositorios.png)
+
 ## Funcionalidades
 
 - **Existencia del Repositorio**: Verifica si el repositorio especificado existe en GitHub.
