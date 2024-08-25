@@ -10,6 +10,10 @@
 - **Commits**: Consulta el número de commits realizados en el repositorio.
 - **Branches**: Lista las ramas (`branches`) existentes en cada repositorio.
 - **Archivos en las Ramas** (opcional): Puede consultar los archivos presentes en cada rama para un análisis más detallado.
+  
+## Link al backend:
+   - https://github.com/veronicajujuy/check-intro-back/tree/main
+
 
 ## Tecnologías Utilizadas
 
