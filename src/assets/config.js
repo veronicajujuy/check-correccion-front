@@ -1,5 +1,1 @@
-const isDevelopment = process.env.NODE_ENV === "development";
-
-export const HTTP = isDevelopment ? "localhost" : "back";
-export const PORT = "3000";
-export const API_URL = `http://${HTTP}:${PORT}`;
+export const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3000";
